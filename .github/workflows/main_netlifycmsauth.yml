@@ -53,14 +53,14 @@ jobs:
           slot-name: 'Production'  # Optional and needed only if the settings have to be configured on the specific deployment slot
           app-settings-json: '[{ "name": "OAUTH_CLIENT_SECRET", "value": "${{ secrets.OAUTH_CLIENT_SECRET }}", "slotSetting": false }]'
           general-settings-json: '{"alwaysOn": "false", "webSocketsEnabled": "true"}' #'General configuration settings as Key Value pairs'
-        id: settings
+        id: settingsmasked
       - uses: azure/appservice-settings@v1
         with:
           app-name: 'netlifycmsauth'
           mask-inputs: false
           slot-name: 'Production'  # Optional and needed only if the settings have to be configured on the specific deployment slot
           app-settings-json: '[{ "name": "OAUTH_CLIENT_ID", "value": "${{ secrets.OAUTH_CLIENT_ID }}", "slotSetting": false }, { "name": "REDIRECT_URL", "value": "${{ secrets.REDIRECT_URL }}", "slotSetting": false }, { "name": "ORIGIN", "value": "${{ secrets.ORIGIN }}", "slotSetting": false }]'
-        id: settings
+        id: settingsunmasked
       - run: echo "The webapp-url is ${{ steps.settings.outputs.webapp-url }}"
       - run: |
           az logout

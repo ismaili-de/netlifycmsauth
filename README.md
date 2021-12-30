@@ -14,6 +14,9 @@ az ad sp create-for-rbac --name https://netlifycmsauth.github.ismaili.de --role 
 
 In GitHub, create a secret with the required app settings:
 
+See also documentation how to add app settings via yaml here:
+<https://github.com/marketplace/actions/azure-app-service-settings>
+
 ``` JSON
 [
   {
