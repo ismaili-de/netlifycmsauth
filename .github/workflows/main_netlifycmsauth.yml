@@ -42,10 +42,3 @@ jobs:
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF6EC2302691459B98796F838A7D660B }}
-
-      - name: Add Function App Settings
-        uses: azure/appservice-settings@v1
-        with:
-          app-name: 'netlifycmsauth'
-          slot-name: 'Production'
-          app-settings-json: '${{ secrets.APP_SETTINGS }}' 
